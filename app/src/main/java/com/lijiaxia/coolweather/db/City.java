@@ -1,5 +1,7 @@
 package com.lijiaxia.coolweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * 描述：
  * 建立City表格存放城市的数据
@@ -7,7 +9,7 @@ package com.lijiaxia.coolweather.db;
  * 时间：2017/1/25:下午3:32
  */
 
-public class City extends DataSupport{
+public class City extends DataSupport {
 
     private int id;
 
@@ -48,6 +50,4 @@ public class City extends DataSupport{
     public void setProvinceId(int provinceId) {
         this.provinceId = provinceId;
     }
-
-    v
 }

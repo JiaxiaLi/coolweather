@@ -2,19 +2,15 @@ package com.lijiaxia.coolweather.util;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
 import com.lijiaxia.coolweather.db.City;
 import com.lijiaxia.coolweather.db.County;
 import com.lijiaxia.coolweather.db.Province;
+import com.lijiaxia.coolweather.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 /**
  * 描述：
@@ -101,6 +97,24 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    /**
+     * 将返回的JSON数据解析成Weather实体类
+     * @param response
+     * @return
+     */
+    public static Weather handleWeatherResponse(String response){
+        try {
+            JSONObject jsonObject=new JSONObject(response);
+            JSONArray jsonArray=jsonObject.getJSONArray("HeWeather");
+            String weatherContent=jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent,Weather.class);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

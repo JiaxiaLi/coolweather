@@ -1,5 +1,7 @@
 package com.lijiaxia.coolweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * 描述：
  * 建立County表格存放县的数据

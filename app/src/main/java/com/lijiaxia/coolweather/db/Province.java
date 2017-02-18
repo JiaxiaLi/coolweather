@@ -1,5 +1,7 @@
 package com.lijiaxia.coolweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
  * 描述：
  * 建立Province表格存放省的数据
